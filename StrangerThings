@@ -1,0 +1,60 @@
+# Welcome to Sonic Pi
+
+use_bpm 160
+
+live_loop :stranger do
+  sample :ambi_dark_woosh, amp: 0.5
+  sleep 2
+end
+
+live_loop :stranger2 do
+  sample :ambi_swoosh
+  sleep 1
+end
+
+live_loop :strangerer do
+  sample :ambi_drone, amp: 0.5, rate: 0.5
+  sleep 2
+end
+live_loop :strangerest do
+  sample :ambi_drone, amp: 0.5, rate: 2
+  sleep 16
+end
+live_loop :things do
+  use_synth :hollow
+  play :c4
+  sleep 0.5
+  play :e4
+  sleep 0.5
+  play :g4
+  sleep 0.5
+  play :b4
+  sleep 0.5
+  play :c5
+  sleep 0.5
+  play :g4
+  sleep 0.5
+  play :e4
+  sleep 0.5
+  play :c4
+  sleep 0.5
+end
+live_loop :things2 do
+  use_synth :dark_ambience
+  play :c4
+  sleep 0.5
+  play :e4
+  sleep 0.5
+  play :g4
+  sleep 0.5
+  play :b4
+  sleep 0.5
+  play :c5
+  sleep 0.5
+  play :g4
+  sleep 0.5
+  play :e4
+  sleep 0.5
+  play :c4
+  sleep 0.5
+end
