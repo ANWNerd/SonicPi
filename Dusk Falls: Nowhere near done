@@ -1,0 +1,157 @@
+use_bpm 146
+use_synth :beep
+define :dusk_falls do
+  play :g5
+  sleep 0.5
+  play :f6
+  sleep 0.5
+  play :g6
+  sleep 0.5
+  play :d6
+  sleep 0.5
+  play :as6
+  sleep 0.5
+  play :f6
+  sleep 0.5
+  play :g6
+  sleep 0.5
+  play :d6
+  sleep 0.5
+  play :g5
+  sleep 0.5
+  play :f6
+  sleep 0.5
+  play :g6
+  sleep 0.5
+  play :d6
+  sleep 0.5
+  play :c7
+  sleep 0.5
+  play :a6
+  sleep 0.5
+  play :as6
+  sleep 0.5
+  play :g6
+  sleep 0.5
+end
+live_loop :dusk do
+  2.times do
+    dusk_falls
+  end
+end
+sleep 9
+
+3.times do
+  sample :ambi_dark_woosh
+  sample :ambi_swoosh
+  sleep 0.5
+  sample :ambi_dark_woosh, amp: 2
+  sample :ambi_swoosh, amp: 2
+  sleep 0.5
+end
+
+sleep 2.5
+
+sample :guit_e_slide, pitch: 0.5
+
+sleep 1.5
+
+live_loop :dusk2 do
+  #use_synth :dpulse
+  use_synth_defaults amp: 0.5
+  3.times do
+    play :g5
+    sleep 0.5
+    play :f6
+    sleep 0.5
+    play :g6
+    sleep 0.5
+    play :d6
+    sleep 0.5
+    play :as6
+    sleep 0.5
+    play :f6
+    sleep 0.5
+    play :g6
+    sleep 0.5
+    play :d6
+    sleep 0.5
+    play :g5
+    sleep 0.5
+    play :f6
+    sleep 0.5
+    play :g6
+    sleep 0.5
+    play :d6
+    sleep 0.5
+    play :c7
+    sleep 0.5
+    play :a6
+    sleep 0.5
+    play :as6
+    sleep 0.5
+    play :g6
+    sleep 0.5
+  end
+  stop
+end
+
+live_loop :drums do
+  8.times do
+    sample :drum_bass_soft, amp: 0.5
+    sleep 1
+    sample :drum_snare_soft
+    sleep 1.5
+    sample :drum_heavy_kick
+    sleep 0.5
+    sample :drum_snare_soft
+    sleep 1
+  end
+  stop
+end
+
+sleep 24
+live_loop :transition do
+  use_synth_defaults amp: 0.5
+  play :g5, amp: 0.5
+  sleep 0.5
+  play :f6, amp: 0.5
+  sleep 0.5
+  play :g6, amp: 0.5
+  sleep 0.5
+  play :d6, amp: 0.5
+  sleep 0.5
+  play :as6, amp: 0.5
+  sleep 0.5
+  play :f6, amp: 0.5
+  sleep 0.5
+  play :g6, amp: 0.5
+  sleep 0.5
+  play :d6, amp: 0.5
+  sleep 0.5
+  play :g5, amp: 0.5
+  sleep 0.5
+  play :f6, amp: 0.5
+  sleep 0.5
+  play :g6, amp: 0.5
+  sleep 0.5
+  play :d6, amp: 0.5
+  sleep 0.5
+  play :f5, amp: 0.5
+  play :a5, amp: 0.5
+  play :f6, amp: 0.5
+  sleep 0.5
+  play :a5, amp: 0.5
+  play :c5, amp: 0.5
+  stop
+end
+sleep 2
+rec = 0.25
+live_loop :scratch do
+  3.times do
+    sample :vinyl_backspin, amp: (rec)
+    sleep 1
+    rec = rec + 0.25
+  end
+  stop
+end
