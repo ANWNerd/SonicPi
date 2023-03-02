@@ -1,0 +1,22 @@
+# Welcome to Sonic Pi
+
+pla = 21
+
+res = 0.5
+87.times do
+  play (pla)
+  sleep (res)
+  pla = pla + 1
+end
+res = res/2
+87.times do
+  play (pla)
+  sleep (res)
+  pla = pla - 1
+end
+res = res/2
+87.times do
+  play (pla)
+  sleep (res)
+  pla = pla + 1
+end
