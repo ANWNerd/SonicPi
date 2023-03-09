@@ -1,0 +1,224 @@
+# Welcome to Sonic Pi
+#guitarnotavalible
+use_bpm 146
+with_fx :whammy do
+  use_synth :beep
+end
+define :dusk_falls do
+  play :g5
+  sleep 0.5
+  play :f6
+  sleep 0.5
+  play :g6
+  sleep 0.5
+  play :d6
+  sleep 0.5
+  play :as6
+  sleep 0.5
+  play :f6
+  sleep 0.5
+  play :g6
+  sleep 0.5
+  play :d6
+  sleep 0.5
+  play :g5
+  sleep 0.5
+  play :f6
+  sleep 0.5
+  play :g6
+  sleep 0.5
+  play :d6
+  sleep 0.5
+  play :c7
+  sleep 0.5
+  play :a6
+  sleep 0.5
+  play :as6
+  sleep 0.5
+  play :g6
+  sleep 0.5
+end
+live_loop :dusk do
+  2.times do
+    dusk_falls
+  end
+  stop
+end
+sleep 9
+
+3.times do
+  sample :ambi_dark_woosh
+  sample :ambi_swoosh
+  sleep 0.5
+  sample :ambi_dark_woosh, amp: 2
+  sample :ambi_swoosh, amp: 2
+  sleep 0.5
+end
+
+sleep 2.5
+
+sample :guit_e_slide, pitch: 0.5
+
+sleep 1.5
+
+live_loop :dusk2 do
+  #use_synth :dpulse
+  use_synth_defaults amp: 0.5
+  3.times do
+    play :g5
+    sleep 0.5
+    play :f6
+    sleep 0.5
+    play :g6
+    sleep 0.5
+    play :d6
+    sleep 0.5
+    play :as6
+    sleep 0.5
+    play :f6
+    sleep 0.5
+    play :g6
+    sleep 0.5
+    play :d6
+    sleep 0.5
+    play :g5
+    sleep 0.5
+    play :f6
+    sleep 0.5
+    play :g6
+    sleep 0.5
+    play :d6
+    sleep 0.5
+    play :c7
+    sleep 0.5
+    play :a6
+    sleep 0.5
+    play :as6
+    sleep 0.5
+    play :g6
+    sleep 0.5
+  end
+  stop
+end
+
+live_loop :drums do
+  8.times do
+    sample :drum_bass_soft, amp: 0.5
+    sleep 1
+    sample :drum_snare_soft
+    sleep 1.5
+    sample :drum_heavy_kick
+    sleep 0.5
+    sample :drum_snare_soft
+    sleep 1
+  end
+  stop
+end
+
+sleep 24
+live_loop :transition do
+  use_synth_defaults amp: 0.5
+  play :g5, amp: 0.5
+  sleep 0.5
+  play :f6, amp: 0.5
+  sleep 0.5
+  play :g6, amp: 0.5
+  sleep 0.5
+  play :d6, amp: 0.5
+  sleep 0.5
+  play :as6, amp: 0.5
+  sleep 0.5
+  play :f6, amp: 0.5
+  sleep 0.5
+  play :g6, amp: 0.5
+  sleep 0.5
+  play :d6, amp: 0.5
+  sleep 0.5
+  play :g5, amp: 0.5
+  sleep 0.5
+  play :f6, amp: 0.5
+  sleep 0.5
+  play :g6, amp: 0.5
+  sleep 0.5
+  play :d6, amp: 0.5
+  sleep 0.5
+  stop
+end
+sleep 2
+rec = 0.25
+live_loop :scratch do
+  3.times do
+    sample :vinyl_backspin, pitch: 2, amp: (rec)
+    sleep 1
+    rec = rec + 0.25
+  end
+  stop
+end
+sleep 4
+transition = "C:/Users/Nahshon Cannad/Downloads/Ninjala OST Dusk Falls Part.wav"
+
+sample transition, amp: 1.5
+
+sleep 34
+
+notes = [:a6,:r,:g6,:r,:r,:a6,:r,:as6,:c7,:d7,:r,:c7,:as6,:c7,:a6,:r,:as6,:f6,:r,:g6,:r,:d6,:r,:r,:r,:r,:r,:r,:r,:r,:r,:d6,:f6,:g6,:r,:r,:r,:r,:r,:a6,:as6,:c7,:r,:as6,:c7,:ds7,:d7,:r,:r,:r,:r,:r,:r,:r,:r,:r,:r,:r,:r,:r,:r,:r,:r,:r,:a6,:r,:g6,:r,:r,:d7,:r,:d7,:c7,:d7,:r,:c7,:c7,:b6,:d7,:r,:c7,:a6,:r,:d7,:r,:as6,:r,:r,:r,:r,:r,:r,:r,:r,:r,:a6,:g6,:a6,:as6,:r,:r,:g6,:r,:a6,:g6,:a6,:r,:as6,:r,:a6,:a6,:r,:r,:g6]
+index = 0
+
+live_loop :drumbeat do
+  7.times do
+    sample :drum_bass_soft, amp: 0.5
+    sleep 1
+    sample :drum_snare_soft
+    sleep 1.5
+    sample :drum_heavy_kick
+    sleep 0.5
+    sample :drum_snare_hard, amp: 0.5
+    sleep 1
+  end
+  sample :drum_bass_soft, amp: 0.5
+  sleep 1
+  sample :drum_snare_soft
+  sleep 1
+  sample :drum_cymbal_hard
+  sleep 0.5
+  sample :drum_tom_hi_soft
+  sleep 0.25
+  sample :drum_tom_hi_soft
+  sleep 0.25
+  sample :drum_tom_hi_soft
+  sleep 0.25
+  sample :drum_tom_hi_soft
+  sleep 0.25
+  sample :drum_tom_hi_soft
+  sleep 0.5
+  sample :drum_cymbal_hard
+  6.times do
+    sample :drum_bass_soft, amp: 0.5
+    sleep 1
+    sample :drum_snare_soft
+    sleep 1.5
+    sample :drum_heavy_kick
+    sleep 0.5
+    sample :drum_snare_hard, amp: 0.5
+    sleep 1
+  end
+  sample :drum_cymbal_hard
+  sleep 3
+  sample :drum_tom_hi_soft
+  sleep 0.25
+  sample :drum_tom_hi_soft
+  sleep 0.25
+  sample :drum_tom_hi_soft
+  sleep 0.5
+  sample :drum_cymbal_hard
+  stop
+end
+sleep 1
+live_loop :second_melody do
+  128.times do
+    play (notes[index])
+    sleep 0.5
+    index = index + 1
+  end
+  stop
+end
