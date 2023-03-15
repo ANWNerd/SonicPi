@@ -12,3 +12,16 @@ live_loop :main_theme do
     index = 0
   end
 end
+use_bpm 120
+use_synth :fm
+use_synth_defaults sustain: 0.25
+notes = [:e3, :r, :r, :r, :r, :r, :e3, :r, :g3, :r, :r, :e3, :r, :r, :d3, :r, :c3, :r, :r, :r, :r, :r, :r, :r, :b2, :r, :r, :r, :r, :r, :r, :r,]
+index = 0
+live_loop :white_stripes do
+  32.times do
+    play (notes[index])
+    sleep 0.25
+    index = index + 1
+  end
+  index = 0
+end
