@@ -1,0 +1,355 @@
+# Welcome to Sonic Pi
+
+use_bpm 125
+use_synth :piano
+define :notes1 do |n, s|
+  play :c6
+  play :c5
+  sleep 0.25
+  play :b5
+  sleep 0.5
+  play :f5
+  sleep 0.5
+  play :gs5
+  sleep 0.5
+  play :c6
+  sleep 0.5
+  play :b5
+  sleep 0.5
+  play :c6
+  sleep 0.25
+  play n
+  sleep s
+end
+define :drums1 do
+  12.times do
+    sample :drum_bass_soft, amp: 0.5
+    sleep 1
+  end
+  4.times do
+    sample :drum_cymbal_closed
+    sleep 1
+  end
+end
+#=begin
+live_loop :night do
+  play :f3
+  sleep 1
+  play :gs3
+  sleep 1
+  play :g3
+  sleep 1
+  play :c3
+  sleep 1
+  play :f3
+  sleep 1
+  play :gs3
+  sleep 1
+  play :g3
+  sleep 0.75
+  play :c3
+  sleep 1.25
+  play :f3
+  sleep 1
+  play :gs3
+  sleep 1
+  play :g3
+  sleep 0.75
+  play :c3
+  sleep 0.75
+  play :c3
+  sleep 0.5
+  play :ds3
+  sleep 0.5
+  play :ds3
+  sleep 0.5
+  play :f3
+  sleep 0.5
+  play :f3
+  sleep 0.5
+  play :gs3
+  sleep 0.5
+  play :g3
+  sleep 0.25
+  play :gs4
+  sleep 0.5
+  play :gs4
+  sleep 0.25
+  play :gs3
+  #notes in lines 32-48 still need changing
+  stop
+end
+live_loop :reaper do
+  sleep 0.5
+  16.times do
+    play :c5
+    play :gs4
+    sleep 1
+  end
+  stop
+end
+sleep 15.75
+#=end
+live_loop :notes1 do
+  notes1 :c6, 1
+  notes1 :f5, 1
+  notes1 :c6, 0.5
+  play :c6
+  sleep 0.25
+  play :c6
+  sleep 0.5
+  play :c6
+  sleep 0.5
+  play :c6
+  sleep 0.5
+  play :as5
+  sleep 0.5
+  play :c6
+  sleep 0.5
+  play :gs5
+  sleep 0.5
+  play :f5
+  sleep 0.25
+  play :gs5
+  sleep 0.5
+  play :e5
+  sleep 0.25
+  play :c5
+  sleep 0.25
+  stop
+end
+sleep 0.25
+live_loop :drums do
+  drums1
+  drums1
+  stop
+end
+define :bgnotespart do
+  play :f3, amp: 0.5
+  sleep 1
+  play :gs3, amp: 0.5
+  sleep 1
+  play :g3, amp: 0.5
+  sleep 1
+  play :c3, amp: 0.5
+  sleep 1
+  play :f3, amp: 0.5
+  sleep 1
+  play :gs3, amp: 0.5
+  sleep 1
+  play :g3, amp: 0.5
+  sleep 0.75
+  play :c3, amp: 0.5
+  sleep 0.75
+  play :c3, amp: 0.5
+  sleep 0.5
+  play :f3, amp: 0.5
+  sleep 1
+  play :gs3, amp: 0.5
+  sleep 1
+  play :g3, amp: 0.5
+  sleep 0.75
+  play :c3, amp: 0.5
+  sleep 0.5
+  play :c3, amp: 0.5
+  sleep 0.5
+  play :c3, amp: 0.5
+  sleep 0.25
+end
+define :bgnotes1 do
+  bgnotespart
+  play :f3, amp: 0.5
+  sleep 0.5
+  play :f3, amp: 0.5
+  sleep 0.5
+  play :ds3, amp: 0.5
+  sleep 0.5
+  play :ds3, amp: 0.5
+  sleep 0.5
+  play :cs3, amp: 0.5
+  sleep 0.5
+  play :cs3, amp: 0.5
+  sleep 0.5
+  play :c3, amp: 0.5
+  sleep 0.5
+  play :c3, amp: 0.5
+  sleep 0.25
+  play :c3, amp: 0.5
+  sleep 0.25
+end
+live_loop :backgroundnotes1 do
+  bgnotes1
+  stop
+end
+sleep 15.75
+live_loop :notes2 do
+  notes1 :c6, 1
+  notes1 :f5, 1
+  notes1 :c6, 0.5
+  play :c6
+  sleep 0.25
+  play :c6
+  sleep 0.5
+  play :f6
+  sleep 0.5
+  play :c6
+  sleep 0.5
+  play :f6
+  sleep 0.5
+  play :c6
+  sleep 0.5
+  play :f6
+  sleep 0.5
+  play :c6
+  sleep 0.25
+  play :f6
+  sleep 0.5
+  play :g6
+  sleep 0.75
+  play :f6
+  stop
+end
+sleep 0.25
+live_loop :backgroundnotes2 do
+  with_octave -1 do
+    bgnotes1
+    bgnotespart
+    sleep 4
+    bgnotespart
+    sleep 4
+  end
+  stop
+end
+sleep 16
+#=end
+live_loop :drums2 do
+  sleep 1.5
+  5.times do
+    sample :drum_cymbal_pedal
+    sleep 2
+  end
+  sample :drum_cymbal_pedal
+  sleep 0.5
+  sample :drum_tom_lo_soft
+  sleep 0.5
+  sample :drum_tom_mid_soft
+  sleep 0.5
+  sample :drum_tom_lo_soft
+  sleep 0.5
+  sample :drum_tom_mid_soft
+  sleep 0.5
+  sample :drum_tom_hi_soft
+  sleep 0.25
+  sample :drum_tom_mid_soft
+  sleep 0.5
+  sample :drum_tom_lo_soft
+  sleep 0.5
+  sample :drum_tom_lo_soft
+  sleep 0.75
+  sample :drum_cymbal_open
+  sleep 1.5
+  5.times do
+    sample :drum_cymbal_pedal
+    sleep 2
+  end
+  sleep 0.5
+  sample :drum_cymbal_closed
+  sleep 4
+  sample :drum_cymbal_open
+  stop
+end
+live_loop :chorus do
+  play :gs4
+  sleep 1
+  play :c5
+  sleep 1
+  play :b4
+  sleep 0.75
+  play :gs4
+  sleep 1.25
+  play :gs4
+  sleep 0.5
+  play :f4
+  sleep 0.5
+  play :gs4
+  sleep 0.5
+  play :f4
+  sleep 0.5
+  play :gs4
+  sleep 0.25
+  play :f4
+  sleep 0.5
+  play :as4
+  sleep 0.5
+  play :b4
+  sleep 0.75
+  play :gs4
+  sleep 1
+  play :c5
+  sleep 1
+  play :b4
+  sleep 0.75
+  play :gs4
+  sleep 1.25
+  play :gs4
+  sleep 0.5
+  play :f4
+  sleep 0.5
+  play :gs4
+  sleep 0.5
+  play :f4
+  sleep 0.5
+  play :gs4
+  sleep 0.25
+  play :f4
+  sleep 0.5
+  play :ds4
+  sleep 0.5
+  play :f4
+  sleep 0.75
+  play :c5
+  play :gs4
+  sleep 1
+  play :c5
+  sleep 1
+  play :b4
+  sleep 0.75
+  play :gs4
+  sleep 1.25
+  play :gs4
+  sleep 0.5
+  play :f4
+  sleep 0.5
+  play :gs4
+  sleep 0.5
+  play :f4
+  sleep 0.5
+  play :gs4
+  sleep 0.25
+  play :f4
+  sleep 0.5
+  play :as4
+  sleep 0.5
+  play :b4
+  sleep 0.75
+  play :gs4
+  sleep 1
+  play :c5
+  sleep 1
+  play :b4
+  sleep 0.75
+  play :gs4
+  sleep 1.25
+  play :f4
+  sleep 0.25
+  play :gs4
+  sleep 0.5
+  play :ds4
+  sleep 0.75
+  play :f4
+  sleep 1.5
+  stop
+end
+sleep 15
+#sample
+#=end
